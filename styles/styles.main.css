@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 4.5em;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+h1 .outline {
+    display: inline-block;
+    padding: 20px 40px;
+    border: 3px solid #333;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#dynamic-text {
+    color: #0066cc;
+    font-style: italic;
+    border-right: 2px solid #333;
+    display: inline-block;
+}
