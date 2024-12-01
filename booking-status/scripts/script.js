@@ -1,4 +1,4 @@
-const SCRIPT_ID = 'AKfycby8p5lai_ZS3JBSjez0TA5jrKF9U2apwXu6cIUaJIkqNsbzEFk4Bx_W1RkhlnsKuJHF';
+const SCRIPT_ID = 'AKfycbybOtlou61K-mMrbko4xITMjueR3keQTMxqu6B_irj1iaLPMMFfljSRbc5g6Jm3cQWt';
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/' + SCRIPT_ID + '/exec';
 
 function search() {
@@ -8,8 +8,19 @@ function search() {
     return;
   }
 
-  fetch(`${APPS_SCRIPT_URL}?bookingId=${encodeURIComponent(bookingId)}`)
-    .then(response => response.json())
+  // Capture the referer (client's origin)
+  const referer = window.location.origin;
+
+  // Construct the URL with the required query parameters
+  const requestUrl = `${APPS_SCRIPT_URL}?bookingId=${encodeURIComponent(bookingId)}&referer=${encodeURIComponent(referer)}`;
+
+  fetch(requestUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
     .then(displayResult)
     .catch(error => {
       document.getElementById("output").innerHTML = `<p class="error">An error occurred: ${error.message}</p>`;
