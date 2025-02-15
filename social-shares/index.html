@@ -30,15 +30,21 @@
     </div>
 
     <script>
+        function getQueryParam(param) {
+            let urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
-            let pageUrl = encodeURIComponent(window.location.href);
+            let pageUrl = getQueryParam("url") || "https://sites.google.com"; // Default to Google Sites
+            let encodedUrl = encodeURIComponent(pageUrl);
             let pageTitle = encodeURIComponent(document.title || "Check this out!");
 
-            document.getElementById("facebookShare").href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-            document.getElementById("twitterShare").href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
-            document.getElementById("linkedinShare").href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
-            document.getElementById("whatsappShare").href = `https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`;
-            document.getElementById("redditShare").href = `https://www.reddit.com/submit?url=${pageUrl}&title=${pageTitle}`;
+            document.getElementById("facebookShare").href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+            document.getElementById("twitterShare").href = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${pageTitle}`;
+            document.getElementById("linkedinShare").href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+            document.getElementById("whatsappShare").href = `https://api.whatsapp.com/send?text=${pageTitle}%20${encodedUrl}`;
+            document.getElementById("redditShare").href = `https://www.reddit.com/submit?url=${encodedUrl}&title=${pageTitle}`;
         });
     </script>
 </body>
