@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Share</title>
+    <style>
+        #socialShareButtons a {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 12px;
+            background-color: #0073e6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        #socialShareButtons a:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div id="socialShareButtons">
+        <a href="#" id="facebookShare" target="_blank">Share on Facebook</a> |
+        <a href="#" id="twitterShare" target="_blank">Tweet</a> |
+        <a href="#" id="linkedinShare" target="_blank">Share on LinkedIn</a> |
+        <a href="#" id="whatsappShare" target="_blank">WhatsApp</a> |
+        <a href="#" id="redditShare" target="_blank">Reddit</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let pageUrl = encodeURIComponent(window.location.href);
+            let pageTitle = encodeURIComponent(document.title || "Check this out!");
+
+            document.getElementById("facebookShare").href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+            document.getElementById("twitterShare").href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+            document.getElementById("linkedinShare").href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+            document.getElementById("whatsappShare").href = `https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`;
+            document.getElementById("redditShare").href = `https://www.reddit.com/submit?url=${pageUrl}&title=${pageTitle}`;
+        });
+    </script>
+</body>
+</html>
