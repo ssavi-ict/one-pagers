@@ -4,31 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Share Widget</title>
-    <script src="code.js" defer></script>
-    <style>
-        #socialShareButtons a {
-            display: inline-block;
-            margin: 5px;
-            padding: 8px 12px;
-            background-color: #0073e6;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        #socialShareButtons a:hover {
-            background-color: #005bb5;
-        }
-    </style>
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=67b939f5069b9100198cf822&product=inline-share-buttons&source=platform" async="async"></script>
 </head>
 <body>
     <h2>Share this page!</h2>
-    <div id="socialShareButtons">
-        <a href="#" id="facebookShare" target="_blank">Share on Facebook</a> |
-        <a href="#" id="twitterShare" target="_blank">Tweet</a> |
-        <a href="#" id="linkedinShare" target="_blank">Share on LinkedIn</a> |
-        <a href="#" id="whatsappShare" target="_blank">WhatsApp</a> |
-        <a href="#" id="redditShare" target="_blank">Reddit</a>
-    </div>
+    <div class="sharethis-inline-share-buttons"></div>
 </body>
 </html>
