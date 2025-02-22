@@ -3,24 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Share</title>
-    <style>
-        #socialShareButtons a {
-            display: inline-block;
-            margin: 5px;
-            padding: 8px 12px;
-            background-color: #0073e6;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        #socialShareButtons a:hover {
-            background-color: #005bb5;
-        }
-    </style>
+    <title>Social Share Widget</title>
+    <script src="code.js" defer></script>
 </head>
 <body>
+    <h2>Share this page!</h2>
     <div id="socialShareButtons">
         <a href="#" id="facebookShare" target="_blank">Share on Facebook</a> |
         <a href="#" id="twitterShare" target="_blank">Tweet</a> |
@@ -28,24 +15,5 @@
         <a href="#" id="whatsappShare" target="_blank">WhatsApp</a> |
         <a href="#" id="redditShare" target="_blank">Reddit</a>
     </div>
-
-    <script>
-        function getQueryParam(param) {
-            let urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            let pageUrl = getQueryParam("url") || "https://sites.google.com"; // Default to Google Sites
-            let encodedUrl = encodeURIComponent(pageUrl);
-            let pageTitle = encodeURIComponent(document.title || "Check this out!");
-
-            document.getElementById("facebookShare").href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-            document.getElementById("twitterShare").href = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${pageTitle}`;
-            document.getElementById("linkedinShare").href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
-            document.getElementById("whatsappShare").href = `https://api.whatsapp.com/send?text=${pageTitle}%20${encodedUrl}`;
-            document.getElementById("redditShare").href = `https://www.reddit.com/submit?url=${encodedUrl}&title=${pageTitle}`;
-        });
-    </script>
 </body>
 </html>
